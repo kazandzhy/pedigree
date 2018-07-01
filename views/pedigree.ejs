@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<div class="container">
+	
+	<% var a = ancestry %>
+	<% for (var key in ancestry) { %>
+	<% var name= ancestry[key].display['name']; %>
+		<div class="person-name"><%= name %></div>
+	<% } %>
+
+</div>
+<%- include('partials/footer') %>
