@@ -22,4 +22,17 @@ nav a:hover {
 .container {
   max-width: 1024px;
   margin: auto;
+  text-align: center;
+}
+
+#buttonRow {
+	font-size: 1.5em;
+}
+
+#output {
+	font-size: 1.2em;
+}
+
+#fullListOutput, #malesOutput, #femalesOutput, #byLetterOutput, #byLetterOutputFinal {
+	display: none;	
 }

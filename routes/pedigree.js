@@ -14,7 +14,7 @@ router.use(require('../middleware/fs-session'));
 // only one route handler for the pedigree but it also makes the URL easier
 // for the user to understand and share.
 router.get('/', function(req, res){
-  res.redirect('/pedigree/' + req.session.user.personId);
+    res.redirect('/pedigree/' + req.session.user.personId);
 });
 
 // Download a person's 8-generation pedigree.
@@ -60,22 +60,26 @@ router.get('/:personId', function(req, res, next) {
         // the pedigree in memory in a nested structure and then recursively
         // traversing that structure in the template (it's as complicated as it
         // sounds).
-		
-		var ancestry = [];
-		var i = 0;
-        response.data.persons.forEach(function(person){
-          ancestry[i] = person;
-		  i++;
-		  //console.log(ancestry[person.display.ascendancyNumber].display['name']);
-        });
-		/*
+	
         var ancestry = {};
         response.data.persons.forEach(function(person){
           ancestry[person.display.ascendancyNumber] = person;
+		  console.log(ancestry);
 		  //console.log(ancestry[person.display.ascendancyNumber].display['name']);
         });
-		*/
+		var ancestryObject = JSON.stringify(ancestry);
 		
+		/*
+		if (typeof localStorage === "undefined" || localStorage === null) {
+		  var LocalStorage = require('node-localstorage').LocalStorage;
+		  localStorage = new LocalStorage('./scratch');
+		}
+		 
+		localStorage.setItem('ancestryObject', ancestryObject);
+		
+		*/
+		//console.log(localStorage.getItem('ancestryObject'));
+			
         // Notify async.autoInject that we're done with this task and give it
         // the ancestry data so that the data is available for later tasks.
         callback(null, ancestry);

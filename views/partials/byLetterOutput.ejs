@@ -1,0 +1,48 @@
+<div id="byLetterOutput">
+	<form id="getLetter">
+		<label for="letterChoice">Letter:</label>
+		<%# -----CHANGE THIS INPUT TO <SELECT>----- %>
+		<input type="text" id="letterChoice" pattern="[A-Za-z]{1}" title="Please enter a single letter">
+		<input type="submit" id="letterShow" value="Show">
+	</form>
+	<br>
+	<div id="byLetterOutputFinal">
+	</div>
+</div>
+
+<script>
+	getLetter.addEventListener('submit', function(e){
+		e.preventDefault();
+		byLetterOutputFinal.style.display = "block";
+		var letter = letterChoice.value.toUpperCase();
+		
+		var maleResult = "";
+		var femaleResult = "";
+		var result = "";
+		<% for (var key in ancestry) { %>
+			<% var name= ancestry[key].display['name']; %>
+			<% var firstName = name.substr(0, name.indexOf(" ")); %>
+			<% var firstLetter = name.substr(0,1); %>
+			<% var gender = ancestry[key].display['gender']; %>
+			
+			if (letter == '<%=firstLetter%>'){ 
+				<% var name= ancestry[key].display['name']; %>
+				<% var firstName = name.substr(0, name.indexOf(" ")); %>
+				<% if(gender == "Male"){ %>
+					maleResult += '<div class="person-name"><%= firstName %></div>';
+				<% } else { %>
+					femaleResult += '<div class="person-name"><%= firstName %></div>';
+				<% } %>
+			}
+			
+				
+		<% } %>
+		
+		if (maleResult == "" && femaleResult == "") {
+			result = '<div class="person-name">There are no names starting with ' + letter + '</div>'
+		} else {
+			result = "<b><u>Male:</u></b><br>" + maleResult + "<br><br><b><u>Female:</u></b><br>" + femaleResult;
+		}
+		byLetterOutputFinal.innerHTML = result;
+	});
+</script>

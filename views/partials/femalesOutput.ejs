@@ -1,0 +1,9 @@
+<div id="femalesOutput">
+	<% for (var key in ancestry) { %>
+		<%if(ancestry[key].display['gender'] == "Female"){ %>
+			<% var name= ancestry[key].display['name']; %>
+			<% var firstName = name.substr(0, name.indexOf(" ")); %>
+			<div class="person-name"><%= firstName %></div>
+		<% } %>	
+	<% } %>	
+</div>

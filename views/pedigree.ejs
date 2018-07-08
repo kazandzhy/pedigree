@@ -1,11 +1,50 @@
-<%- include('partials/header') %>
-<div class="container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pedigree</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">	
+	<link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  
+	<body>
 	
-	<% var a = ancestry %>
-	<% for (var key in ancestry) { %>
-	<% var name= ancestry[key].display['name']; %>
-		<div class="person-name"><%= name %></div>
-	<% } %>
+		<%- include('partials/header') %>
+		
+		<br><br>
+		<div class="container">
+			<div id="buttonRow" class="row">
+				<div class="col-md-3">
+					<button id="fullList">Full List of Names</button>
+				</div>
+				<div class="col-md-3">
+					<button id="males">Male Names</button>
+				</div>
+				<div class="col-md-3">
+					<button id="females">Female Names</button>
+				</div>
+				<div class="col-md-3">
+					<button id="byLetter">By Letter</button>
+				</div>
+			</div>
+			<br><br><br><br>
+			<div id="output">
+				<%- include('partials/fullListOutput', {ancestry: ancestry}) %>
+				<%- include('partials/malesOutput', {ancestry: ancestry}) %>
+				<%- include('partials/femalesOutput', {ancestry: ancestry}) %>
+				<%- include('partials/byLetterOutput', {ancestry: ancestry}) %>
+			</div>
+			<br><br>
 
-</div>
-<%- include('partials/footer') %>
+		</div>
+		
+		<%- include('partials/footer') %>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/workWithNames.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		
+	</body>
+
+</html>
+

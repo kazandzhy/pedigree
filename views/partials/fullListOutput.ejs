@@ -1,0 +1,8 @@
+<div id="fullListOutput">
+
+	<% for (var key in ancestry) { %>
+		<% var name= ancestry[key].display['name']; %>
+		<% var firstName = name.substr(0, name.indexOf(" ")); %>
+		<div class="person-name"><%= firstName %></div>
+	<% } %>	
+</div>
