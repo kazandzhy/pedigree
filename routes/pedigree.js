@@ -64,7 +64,7 @@ router.get('/:personId', function(req, res, next) {
         var ancestry = {};
         response.data.persons.forEach(function(person){
           ancestry[person.display.ascendancyNumber] = person;
-		  console.log(ancestry);
+		  //console.log(ancestry);
 		  //console.log(ancestry[person.display.ascendancyNumber].display['name']);
         });
 		var ancestryObject = JSON.stringify(ancestry);

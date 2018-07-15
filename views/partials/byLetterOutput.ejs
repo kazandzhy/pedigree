@@ -20,22 +20,24 @@
 		var femaleResult = "";
 		var result = "";
 		<% for (var key in ancestry) { %>
-			<% var name= ancestry[key].display['name']; %>
-			<% var firstName = name.substr(0, name.indexOf(" ")); %>
-			<% var firstLetter = name.substr(0,1); %>
-			<% var gender = ancestry[key].display['gender']; %>
+			<% var id= ancestry[key].id; %>
+			<% var link= "https://integration.familysearch.org/tree/person/details/" + id; %>
 			
-			if (letter == '<%=firstLetter%>'){ 
-				<% var name= ancestry[key].display['name']; %>
-				<% var firstName = name.substr(0, name.indexOf(" ")); %>
-				<% if(gender == "Male"){ %>
-					maleResult += '<div class="person-name"><%= firstName %></div>';
-				<% } else { %>
-					femaleResult += '<div class="person-name"><%= firstName %></div>';
-				<% } %>
-			}
+			<% var nameType = ancestry[key].names[0]['nameForms'][0]['parts'][0]['type']; %>
+			<% if (nameType == "http://gedcomx.org/Given") { %>
+				<% var givenName = ancestry[key].names[0]['nameForms'][0]['parts'][0]['value']; %>	
+				<% var firstLetter = givenName.substr(0,1); %>
+				<% var gender = ancestry[key].display['gender']; %>
 			
-				
+				if (letter == '<%=firstLetter%>'){ 
+					<% if(gender == "Male"){ %>
+						maleResult += '<div class="person-name"><a href="<%= link %>" target="_blank"><%= givenName %></a></div>';
+					<% } else { %>
+						femaleResult += '<div class="person-name"><a href="<%= link %>" target="_blank"><%= givenName %></a></div>';
+					<% } %>
+				}
+			<% } %>
+			
 		<% } %>
 		
 		if (maleResult == "" && femaleResult == "") {
