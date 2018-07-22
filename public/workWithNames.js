@@ -2,6 +2,7 @@ $( document ).ready(function() {
 		
 	$("#fullList").on("click", function() {
 		$("#fullListOutput").show();
+		$(".image").show();
 		$("#malesOutput").hide();
 		$("#femalesOutput").hide();
 		$("#byLetterOutput").hide();
@@ -33,3 +34,14 @@ $( document ).ready(function() {
 	});
 	
 });
+
+function swapClass(el){
+	
+	var kids = el.parentElement.children;
+	
+	for(var i = 0; i < kids.length; i++){
+        kids[i].className = "color1";
+    }
+	
+	el.className = "color2";
+}

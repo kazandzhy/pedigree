@@ -11,28 +11,35 @@
 		<%- include('partials/header') %>
 		
 		<br><br>
-		<div class="container">
+		<div class="container pedigreeDiv">
 			<div id="buttonRow" class="row">
-				<div class="col-md-3">
-					<button id="fullList">Full List of Names</button>
-				</div>
-				<div class="col-md-3">
-					<button id="males">Male Names</button>
-				</div>
-				<div class="col-md-3">
-					<button id="females">Female Names</button>
-				</div>
-				<div class="col-md-3">
-					<button id="byLetter">By Letter</button>
+				
+				
+				<div class="col-md-12">
+				    <button id="fullList" class="color1" onclick="swapClass(this)">Full List of Names</button>
+					<button id="males" class="color1" onclick="swapClass(this)">Male Names</button>
+					<button id="females" class="color1" onclick="swapClass(this)">Female Names</button>
+					<button id="byLetter" class="color1" onclick="swapClass(this)">By Letter</button>
 				</div>
 			</div>
-			<br><br><br><br>
-			<div id="output">
-				<%- include('partials/fullListOutput', {ancestry: ancestry}) %>
-				<%- include('partials/malesOutput', {ancestry: ancestry}) %>
-				<%- include('partials/femalesOutput', {ancestry: ancestry}) %>
-				<%- include('partials/byLetterOutput', {ancestry: ancestry}) %>
+			<br><br>
+			<div id="buttonRow" class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<div id="output">
+					<%- include('partials/fullListOutput', {ancestry: ancestry}) %>
+					<%- include('partials/malesOutput', {ancestry: ancestry}) %>
+					<%- include('partials/femalesOutput', {ancestry: ancestry}) %>
+					<%- include('partials/byLetterOutput', {ancestry: ancestry}) %>
 			</div>
+				</div>
+				<div class="col-md-4">
+					
+				</div>
+				
+			</div>
+			
 			<br><br>
 
 		</div>

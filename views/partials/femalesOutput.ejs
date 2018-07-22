@@ -7,7 +7,7 @@
 			<% var nameType = ancestry[key].names[0]['nameForms'][0]['parts'][0]['type']; %>
 			<% if (nameType == "http://gedcomx.org/Given") { %>
 				<% var givenName = ancestry[key].names[0]['nameForms'][0]['parts'][0]['value']; %>				
-				<div class="person-name"><a href="<%= link %>" target="_blank"><%= givenName %></a></div>
+				<div class="person-name"><a class="link" href="<%= link %>" target="_blank"><%= givenName %></a></div>
 			<% } %>
 		<% } %>	
 	<% } %>	

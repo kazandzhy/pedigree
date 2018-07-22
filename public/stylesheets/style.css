@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f2efe9;
 }
 
 a {
@@ -22,8 +23,40 @@ nav a:hover {
 .container {
   max-width: 1024px;
   margin: auto;
-  text-align: center;
 }
+
+
+.pedigreeDiv {
+	text-align: center;
+}
+
+.navbar-text, .navbar-brand, .signOut, .userName{
+	font-size: 1.3em;
+}
+
+.color1{  		 
+	color:#347A34; 
+	width:9em; 
+	height:2em; 
+	background-color: #d0e3c4;
+}
+
+.color2{ 	 
+	color:#0C0; 
+	width:9em; 
+	height:2em; 
+    margin-bottom: 1em;  
+    background-color: #347A34;	
+}
+
+.link{
+	color: #5386e4;
+}
+
+.text{
+	color: #347A34;
+}
+
 
 #buttonRow {
 	font-size: 1.5em;
@@ -36,3 +69,30 @@ nav a:hover {
 #fullListOutput, #malesOutput, #femalesOutput, #byLetterOutput, #byLetterOutputFinal {
 	display: none;	
 }
+
+#fullList, #males, #females, #byLetter{
+	
+	width:9em;
+	margin-bottom: 1em;
+	height: 2em;
+}
+
+#letterChoice{
+	background-color: #d0e3c4;
+	margin-bottom: 1em;
+	width: 7.5em;
+	height: 1.5em;
+	color: #347A34;
+}
+
+#letterShow{
+	color: white;
+	background-color: #5386e4;
+	margin-bottom: 1em;
+	width: 7.5em;
+	height: 1.5em;
+}
+
+
+
+

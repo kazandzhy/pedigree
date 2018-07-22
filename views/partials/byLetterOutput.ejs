@@ -1,8 +1,10 @@
 <div id="byLetterOutput">
 	<form id="getLetter">
-		<label for="letterChoice">Letter:</label>
+		<label class="text" for="letterChoice">Enter a single letter:</label>
+		<br><br>
 		<%# -----CHANGE THIS INPUT TO <SELECT>----- %>
 		<input type="text" id="letterChoice" pattern="[A-Za-z]{1}" title="Please enter a single letter">
+		<br>
 		<input type="submit" id="letterShow" value="Show">
 	</form>
 	<br>
@@ -14,11 +16,20 @@
 	getLetter.addEventListener('submit', function(e){
 		e.preventDefault();
 		byLetterOutputFinal.style.display = "block";
+		var input = letterChoice.value;
+		
 		var letter = letterChoice.value.toUpperCase();
 		
 		var maleResult = "";
 		var femaleResult = "";
 		var result = "";
+		
+		if (input == "")
+        {
+            alert("Please Fill Required Field");
+            return false;
+        }
+		
 		<% for (var key in ancestry) { %>
 			<% var id= ancestry[key].id; %>
 			<% var link= "https://integration.familysearch.org/tree/person/details/" + id; %>
@@ -31,9 +42,9 @@
 			
 				if (letter == '<%=firstLetter%>'){ 
 					<% if(gender == "Male"){ %>
-						maleResult += '<div class="person-name"><a href="<%= link %>" target="_blank"><%= givenName %></a></div>';
+						maleResult += '<div class="person-name"><a class="link" href="<%= link %>" target="_blank"><%= givenName %></a></div>';
 					<% } else { %>
-						femaleResult += '<div class="person-name"><a href="<%= link %>" target="_blank"><%= givenName %></a></div>';
+						femaleResult += '<div class="person-name"><a class="link" href="<%= link %>" target="_blank"><%= givenName %></a></div>';
 					<% } %>
 				}
 			<% } %>
@@ -41,9 +52,9 @@
 		<% } %>
 		
 		if (maleResult == "" && femaleResult == "") {
-			result = '<div class="person-name">There are no names starting with ' + letter + '</div>'
-		} else {
-			result = "<b><u>Male:</u></b><br>" + maleResult + "<br><br><b><u>Female:</u></b><br>" + femaleResult;
+			result = '<div class="person-name text">There are no names starting with ' + letter + '</div>'
+		}else {
+			result = "<div class='text'><b><u>Male:</u></b></div>" + maleResult + "<br><br><div class='text'><b><u>Female:</u></b></div>" + femaleResult;
 		}
 		byLetterOutputFinal.innerHTML = result;
 	});
