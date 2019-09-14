@@ -7,7 +7,6 @@ var config = require('config');
 
 var app = express();
 
-
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -23,7 +22,6 @@ app.set('trust proxy', true);
 // only designed for development environments. It will leak memory. Use a
 // different storage adapter in production, such as redis.
 // https://www.npmjs.com/package/express-session
-//
 // We use the session to store the FS access token and the current user data.
 app.use(session({
   secret: 'pedigree browser session secret',

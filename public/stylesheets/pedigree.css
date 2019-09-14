@@ -1,0 +1,93 @@
+.container {
+	margin-top: 5rem;
+	margin-bottom: 2rem;
+	width: 64rem;
+}
+
+.col-lg-12 {
+	margin-bottom: 1.5rem;
+}
+
+.color1{  		 
+	color:black; 
+	width:9em; 
+	height:2em; 
+	background-color: #d0e3c4;
+	font-size: 1.7rem;
+}
+
+.color2{ 	 
+	color:#AAFFAA; 
+	width:9em; 
+	height:2em; 
+    margin-bottom: 1em;  
+    background-color: #347A34;
+	font-size: 1.4rem;
+}
+
+.link{
+	color: brown;
+	font-size: 1.4rem;
+}
+
+.text{
+	color: black;
+	font-size: 1.4rem;
+}
+
+#buttonRow {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#ancestorNames {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#output {
+	font-size: 1.2em;
+}
+
+#fullListOutput, #malesOutput, #femalesOutput, #byLetterOutput, #byLetterOutputFinal {
+	display: none;	
+}
+
+#fullList, #males, #females, #byLetter{
+	width:15rem;
+	margin-bottom: 1rem;
+	height: 3rem;
+}
+
+#letterChoice{
+	background-color: #d0e3c4;
+	margin-bottom: 2rem;
+	width: 3rem;
+	height: 2.3rem;
+	color: black;
+}
+
+#letterShow{
+	color: black;
+	background-color: #fad77a;
+	width: 8.5em;
+	height: 1.7em;
+}
+
+input[type=submit]:hover, button:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media (max-width: 576px) {
+    
+    .container {
+        width: 95%;
+    }  
+}
+
+@media (max-width: 331px) {
+    
+    .container {
+        margin-top: 7rem;
+    }  
+}

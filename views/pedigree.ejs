@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pedigree</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">	
-	<link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  
-	<body>
-	
-		<%- include('partials/header') %>
+	<head>
+		<title>Pedigree</title>
 		
-		<br><br>
-		<div class="container pedigreeDiv">
+		<base href="/">
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 														integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="/stylesheets/home.css">
+		<link rel="stylesheet" href="/stylesheets/pedigree.css">
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+			<a class="navbar-brand" href="#" id="author">Vlad Kazandzhi</a>
+			<a class="navbar-brand" href="#" id="current-page">Pedigree</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+			  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+				<ul class="nav navbar-nav mr-auto">
+
+					<% if(session.user){ %>
+						<li class="nav-item">
+							<a class="nav-link" href="#"> <%= session.user.contactName %></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/signout"> Sign Out</a>
+						</li>
+					<% } else { %>
+						<li class="nav-item">
+							<a class="nav-link" href="/signin"> Sign In</a>
+						</li>
+					<% } %>
+
+					<li class="nav-item">
+						<a class="nav-link" href="http://w3playground.com/"> Home</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			
 			<div id="buttonRow" class="row">
-				
-				
-				<div class="col-md-12">
-				    <button id="fullList" class="color1" onclick="swapClass(this)">Full List of Names</button>
+
+				<div class="col-lg-12">
+					<button id="fullList" class="color1" onclick="swapClass(this)">Full List of Names</button>
 					<button id="males" class="color1" onclick="swapClass(this)">Male Names</button>
 					<button id="females" class="color1" onclick="swapClass(this)">Female Names</button>
 					<button id="byLetter" class="color1" onclick="swapClass(this)">By Letter</button>
-				</div>
+				</div>	
 			</div>
-			<br><br>
-			<div id="buttonRow" class="row">
-				<div class="col-md-4">
-				</div>
-				<div class="col-md-4">
-					<div id="output">
+			
+			<div id="ancestorNames" class="row">
+				<div class="col-lg-4">
+			</div>
+				
+			<div class="col-lg-4">
+				<div id="output">
 					<%- include('partials/fullListOutput', {ancestry: ancestry}) %>
 					<%- include('partials/malesOutput', {ancestry: ancestry}) %>
 					<%- include('partials/femalesOutput', {ancestry: ancestry}) %>
 					<%- include('partials/byLetterOutput', {ancestry: ancestry}) %>
+				</div>
 			</div>
-				</div>
-				<div class="col-md-4">
-					
-				</div>
 				
-			</div>
-			
-			<br><br>
-
+			<div class="col-lg-4"></div>
 		</div>
-		
-		<%- include('partials/footer') %>
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="/workWithNames.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-		
-	</body>
 
+		<%- include('partials/footer') %>
+
+		<!--js file name-->
+		<script src="/workWithNames.js"></script>
+
+	</body>
 </html>
 

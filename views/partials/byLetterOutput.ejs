@@ -1,25 +1,24 @@
 <div id="byLetterOutput">
 	<form id="getLetter">
 		<label class="text" for="letterChoice">Enter a single letter:</label>
-		<br><br>
 		<%# -----CHANGE THIS INPUT TO <SELECT>----- %>
 		<input type="text" id="letterChoice" pattern="[A-Za-z]{1}" title="Please enter a single letter">
 		<br>
 		<input type="submit" id="letterShow" value="Show">
 	</form>
 	<br>
-	<div id="byLetterOutputFinal">
-	</div>
+	<div id="byLetterOutputFinal"></div>
 </div>
 
 <script>
+	
 	getLetter.addEventListener('submit', function(e){
+		
 		e.preventDefault();
 		byLetterOutputFinal.style.display = "block";
+		
 		var input = letterChoice.value;
-		
 		var letter = letterChoice.value.toUpperCase();
-		
 		var maleResult = "";
 		var femaleResult = "";
 		var result = "";
@@ -31,10 +30,11 @@
         }
 		
 		<% for (var key in ancestry) { %>
+		
 			<% var id= ancestry[key].id; %>
-			<% var link= "https://integration.familysearch.org/tree/person/details/" + id; %>
-			
+			<% var link= "https://integration.familysearch.org/tree/person/details/" + id; %>	
 			<% var nameType = ancestry[key].names[0]['nameForms'][0]['parts'][0]['type']; %>
+		
 			<% if (nameType == "http://gedcomx.org/Given") { %>
 				<% var givenName = ancestry[key].names[0]['nameForms'][0]['parts'][0]['value']; %>	
 				<% var firstLetter = givenName.substr(0,1); %>
@@ -50,12 +50,13 @@
 			<% } %>
 			
 		<% } %>
-		
+					
 		if (maleResult == "" && femaleResult == "") {
-			result = '<div class="person-name text">There are no names starting with ' + letter + '</div>'
+			result = '<div class="person-name text">There are no names <br> starting with ' + letter + '</div>'
 		}else {
-			result = "<div class='text'><b><u>Male:</u></b></div>" + maleResult + "<br><br><div class='text'><b><u>Female:</u></b></div>" + femaleResult;
+			result = "<div class='text'><u>Male:</u></div>" + maleResult + "<br><div class='text'><u>Female:</u></div>" + femaleResult;
 		}
+		
 		byLetterOutputFinal.innerHTML = result;
 	});
 </script>

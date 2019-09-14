@@ -1,10 +1,13 @@
 <div id="malesOutput">
+	
 	<% for (var key in ancestry) { %>
+	
 		<%if(ancestry[key].display['gender'] == "Male"){ %>
+	
 			<% var id= ancestry[key].id; %>
-			<% var link= "https://integration.familysearch.org/tree/person/details/" + id; %>
-			
+			<% var link= "https://integration.familysearch.org/tree/person/details/" + id; %>		
 			<% var nameType = ancestry[key].names[0]['nameForms'][0]['parts'][0]['type']; %>
+	
 			<% if (nameType == "http://gedcomx.org/Given") { %>
 				<% var givenName = ancestry[key].names[0]['nameForms'][0]['parts'][0]['value']; %>				
 				<div class="person-name"><a class="link" href="<%= link %>" target="_blank"><%= givenName %></a></div>

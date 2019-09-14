@@ -16,7 +16,12 @@ module.exports = function(req, res, next){
       environment: config.get('FS.environment'),
       appKey: config.get('FS.appKey'),
 	  // for testing locally
-      //redirectUri: domain + ':3000/oauth-redirect'
+      // redirectUri: domain + ':3000/oauth-redirect'
+		
+	  // for testing through Goorm
+	//	 redirectUri: domain + '/oauth-redirect'
+		
+	  // for the live Heroku site
 	  redirectUri: domain + '/oauth-redirect'
     });
     

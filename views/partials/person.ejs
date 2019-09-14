@@ -1,12 +1,12 @@
 <%
   var missing = false;
-  if(typeof person === 'undefined'){
-    person = {
-      display: {}
-    };
-    missing = true;
-  }
+
+	if(typeof person === 'undefined'){
+		person = { display: {} };
+		missing = true;
+	}
 %>
+
 <div class="person <%= missing ? 'missing' : '' %>" data-pid="<%= person.id %>">
-  <div class="person-name"><%= person.display.name %></div>
+	<div class="person-name"><%= person.display.name %></div>
 </div>
